@@ -46,7 +46,7 @@ var CardComponent = {
   template: `
 <div class="max-w-sm bg-white rounded-lg shadow-md dark:bg-white-800 dark:border-white-700">
 <a href="#">
-<img class="p-8 rounded-t-lg"  :src="'img/product/' + card.image" alt="{{ card.name }}">
+<img class="p-8 rounded-t-lg"  :src="'img/product/' + card.image">
 </a>
 <div class="px-5 pb-5">
 <a href="#">
@@ -62,7 +62,7 @@ var CardComponent = {
 </div>
 <div class="flex justify-between items-center">
 <span class="text-xl font-bold text-black ">Rp.{{ card.price }} </span>
-<a href="#" class="btn btn-primary">Shop Now</a>
+<a href="#my-modal-2" @click="$emit('selected', card.name)" class="btn btn-primary ">Shop Now</a>
 </div>
 </div>
 </div>
@@ -77,6 +77,8 @@ new Vue({
     card: CardComponent,
   },
   data: {
+    selectedCard: "",
+    search: "",
     cards: [
       {
         id: 1,
@@ -116,4 +118,24 @@ new Vue({
       },
     ],
   },
+  // computed: {
+  // filterCards: function () {
+  //   return this.cards.filter((card) => {
+  //     return card.name.match(this.search);
+  //   });
+  // },
+  computed: {
+    filterCards: function () {
+      if (this.search.trim() === "") {
+        return this.cards;
+      } else {
+        return this.cards.filter((card) => {
+          return (
+            card.name.toLowerCase().indexOf(this.search.toLowerCase()) >= 0
+          );
+        });
+      }
+    },
+  },
+  // },
 });
