@@ -70,11 +70,8 @@ var NavComponent = {
       </div>
     </div>`,
 };
-var FooterComponent = {
-  template: `<footer
-      data-theme="dark"
-      class="footer footer-center p-10 bg-base-200 text-base-content"
-    >
+var FooComponent = {
+  template: `
       <div class="grid grid-flow-col gap-4">
         <a class="link link-hover">About us</a>
         <a class="link link-hover">Contact</a>
@@ -123,14 +120,13 @@ var FooterComponent = {
       </div>
       <div>
         <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
-      </div>
-    </footer>`,
+      </div>`,
 };
 
 new Vue({
   el: "#app",
   components: {
     navbar: NavComponent,
-    footer: FooterComponent,
+    foo: FooComponent,
   },
 });
