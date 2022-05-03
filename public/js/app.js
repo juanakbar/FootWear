@@ -62,7 +62,7 @@ var CardComponent = {
   </div>
   <div class="flex justify-between items-center">
   <span class="text-xl font-bold text-black ">Rp.{{ card.price }} </span>
-  <a href="#my-modal-2" @click="$emit('selected', card.name)" class="btn btn-primary ">Shop Now</a>
+  <a href="#my-modal-2" @click="$emit('selected', card.name +  card.price)"  class="btn btn-primary ">Shop Now</a>
   </div>
   </div>
   </div>
@@ -96,6 +96,7 @@ new Vue({
   },
   data: {
     selectedCard: "",
+    selectedPrice: "",
     search: "",
     cards: [
       {
@@ -159,24 +160,10 @@ new Vue({
       },
       {
         id: 4,
-        name: "Adidas",
+        name: "Nike",
         description:
-          "Adidas AG, juga dikenal sebagai adidas, adalah sebuah perusahaan sepatu Jerman. Perusahaan ini dinamakan atas pendirinya, Adolf Dassler, yang mulai memproduksi sepatu pada 1920-an di Herzogenaurach dekat Nuremberg.",
-        image: "adidas.png",
-      },
-      {
-        id: 5,
-        name: "Adidas",
-        description:
-          "Adidas AG, juga dikenal sebagai adidas, adalah sebuah perusahaan sepatu Jerman. Perusahaan ini dinamakan atas pendirinya, Adolf Dassler, yang mulai memproduksi sepatu pada 1920-an di Herzogenaurach dekat Nuremberg.",
-        image: "adidas.png",
-      },
-      {
-        id: 6,
-        name: "Adidas",
-        description:
-          "Adidas AG, juga dikenal sebagai adidas, adalah sebuah perusahaan sepatu Jerman. Perusahaan ini dinamakan atas pendirinya, Adolf Dassler, yang mulai memproduksi sepatu pada 1920-an di Herzogenaurach dekat Nuremberg.",
-        image: "adidas.png",
+          "Nike, Inc. adalah salah satu perusahaan sepatu, pakaian dan alat-alat olahraga Amerika Serikat yang merupakan salah satu yang terbesar di dunia.",
+        image: "nike.png",
       },
     ],
   },
